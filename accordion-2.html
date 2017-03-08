@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="main">
+
+<head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="custome.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.1.5/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.5.0/ui-bootstrap-tpls.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</head>
+
+<body ng-controller="AppCtrl">
+    <div class="container demo">
+        <accordion close-others="true">
+            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                <div class="panel panel-default">
+                    <accordion-group ng-repeat="group in groups" is-open="group.open">
+                        <accordion-heading>
+                            <h4 class="panel-heading panel-title">
+                    <i ng-class="{'icon-minus-sign':groups[$index].open,'icon-plus-sign':!groups[$index].open }"></i>
+                    {{group.title}}
+                </h4>
+                        </accordion-heading>
+                        <div class="panel-body">
+                            {{group.content}}
+                        </div>
+                    </accordion-group>
+                </div>
+            </div>
+        </accordion>
+        <!-- panel-group -->
+    </div>
+    <!-- container -->
+</body>
+
+</html>
